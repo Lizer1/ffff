@@ -28,7 +28,7 @@ client.on('ready', () => {
      client.user.setActivity("you",{type: 'WATCHING'});
  
 });
-const prefix = "$"
+const prefix = "1"
 client.on('message', async msg => {
     if (msg.author.bot) return undefined;
     if (!msg.content.startsWith(prefix)) return undefined;
@@ -320,4 +320,36 @@ function play(guild, song) {
 }
 });
  
+
+
+
+
+
+const adminprefix = "1";
+const devs = ['531363936403193857'];
+client.on('message', message => {
+  var argresult = message.content.split().slice(1).join(' ');
+    if (!devs.includes(message.author.id)) return;
+    
+if (message.content.startsWith(adminprefix + 'setG')) {
+  client.user.setGame(argresult);
+    message.channel.sendMessage(${argresult} تم تغيير بلاينق البوت إلى )
+} else 
+  if (message.content.startsWith(adminprefix + 'setN')) {
+client.user.setUsername(argresult).then
+    message.channel.sendMessage(${argresult} : تم تغيير أسم البوت إلى)
+return message.reply("**لا يمكنك تغيير الاسم يجب عليك الانتظآر لمدة ساعتين . **");
+} else
+  if (message.content.startsWith(adminprefix + 'setA')) {
+client.user.setAvatar(argresult);
+  message.channel.sendMessage(${argresult} : تم تغير صورة البوت);
+      } else     
+if (message.content.startsWith(adminprefix + 'setT')) {
+  client.user.setGame(argresult, "https://www.twitch.tv/idk");
+    message.channel.sendMessage(تم تغيير تويتش البوت إلى  ${argresult})
+}
+});
+
+
+
 client.login(process.env.BOT_TOKEN);
